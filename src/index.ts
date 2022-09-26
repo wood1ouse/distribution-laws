@@ -6,7 +6,8 @@ import BasicNumberGenerator from '@generators/basic.generator';
 import { ExponentialNumberGenerator } from '@generators/exponential.generator';
 import { NormalNumberGenerator } from '@generators/normal.generator';
 
-import { UniformNumberGenerator } from '@generators/uniform.generator';
+import { UniformNumberGenerator } from '@models/uniform.generator';
+
 import { newPlot, Data } from 'plotly.js-dist-min';
 
 import { variance, mean } from 'mathjs'
@@ -23,6 +24,11 @@ const renderExponential = (lambda = 2) => {
     {
       x: generatedNumbers,
       type: 'histogram',
+      xbins: {
+        start: '0',
+        end: '5',
+        size: ''
+      }
     }
   ]
 
@@ -36,13 +42,6 @@ const renderExponential = (lambda = 2) => {
       type: 'scatter'
     }
   ]
-
-  const chi2 = generatedNumbers.reduce((acc, _, i) => {
-    return acc + (((generatedNumbers[i] - dist[i]) ** 2) / dist[i])
-  }, 0)
-
-  console.log(chi2);
-  
 
   document.querySelector('.exp-lambda-value')!.textContent = `Lambda: ${lambda}`
   document.querySelector('.exp-mean-value')!.textContent = `Mean: ${mean(generatedNumbers)}`
