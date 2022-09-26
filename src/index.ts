@@ -6,7 +6,7 @@ import BasicNumberGenerator from '@generators/basic.generator';
 import { ExponentialNumberGenerator } from '@generators/exponential.generator';
 import { NormalNumberGenerator } from '@generators/normal.generator';
 
-import { UniformNumberGenerator } from '@models/uniform.generator';
+import { UniformNumberGenerator } from '@generators/uniform.generator';
 
 import { newPlot, Data } from 'plotly.js-dist-min';
 
