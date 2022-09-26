@@ -104,6 +104,9 @@ const renderUniform = () => {
     }
   ]
 
+  document.querySelector('.uni-mean-value')!.textContent = `Mean: ${mean(generatedNumbers)}`
+  document.querySelector('.uni-variance-value')!.textContent = `Variance: ${variance(generatedNumbers)}`
+
   newPlot('uni-histogram', histogram)
   newPlot('uni-pdf', pdf)
 }
